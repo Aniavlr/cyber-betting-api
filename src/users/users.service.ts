@@ -18,17 +18,17 @@ export class UserService {
     return this.userRepository.find();
   }
 
-  getUserById(id: number) {
-    const user = this.userRepository.findOneBy({ id });
+  async getUserById(id: number) {
+    const user = await this.userRepository.findOneBy({ id });
     if (!user) {
       throw new NotFoundException(`User with ${id} not found`);
     }
     return user;
   }
 
-  createUser(body: CreateUserDto) {
+  async createUser(body: CreateUserDto) {
     const name = body.name;
     const user = this.userRepository.create({ name });
-    return this.userRepository.save(user);
+    return await this.userRepository.save(user);
   }
 }
