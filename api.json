@@ -1,0 +1,187 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["App"]
+      }
+    },
+    "/users": {
+      "get": {
+        "operationId": "UsersController_getAllUser",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Users"]
+      },
+      "post": {
+        "operationId": "UsersController_createUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateUserDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["Users"]
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "operationId": "UsersController_getUserById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Users"]
+      }
+    },
+    "/matches": {
+      "get": {
+        "operationId": "MatchesController_getAllMatch",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Matches"]
+      },
+      "post": {
+        "operationId": "MatchesController_createMatch",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateMatchDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["Matches"]
+      }
+    },
+    "/matches/{id}": {
+      "get": {
+        "operationId": "MatchesController_getMatchById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Matches"]
+      }
+    },
+    "/matches/{id}/status": {
+      "patch": {
+        "operationId": "MatchesController_updateStatus",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateMatchStatusDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Matches"]
+      }
+    },
+    "/matches/{id}/winner": {
+      "patch": {
+        "operationId": "MatchesController_setWinner",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SetWinnerDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Matches"]
+      }
+    },
+    "/bets": {
+      "get": {
+        "operationId": "BetsController_getAllBets",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Bets"]
+      },
+      "post": {
+        "operationId": "BetsController_createBet",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateBetDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["Bets"]
+      }
+    },
+    "/bets/user/{userId}": {
+      "get": {
+        "operationId": "BetsController_getBetsByUserId",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Bets"]
+      }
+    }
+  },
+  "info": {
+    "title": "Cyber Betting API",
+    "description": "REST API для ставок на киберспортивные матчи",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateUserDto": { "type": "object", "properties": {} },
+      "CreateMatchDto": { "type": "object", "properties": {} },
+      "UpdateMatchStatusDto": { "type": "object", "properties": {} },
+      "SetWinnerDto": { "type": "object", "properties": {} },
+      "CreateBetDto": { "type": "object", "properties": {} }
+    }
+  }
+}
