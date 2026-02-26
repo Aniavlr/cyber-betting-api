@@ -13,7 +13,7 @@ import {
   UpdateMatchStatusDto,
   SetWinnerDto,
 } from './match.dto';
-import { User } from 'src/users/users.entity';
+import { User } from '../users/users.entity';
 
 @Injectable()
 export class MatchesService {

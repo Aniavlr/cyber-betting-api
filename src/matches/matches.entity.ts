@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Bet } from 'src/bets/bets.entity';
+import { Bet } from '../bets/bets.entity';
 
 export enum MatchStatus {
   PENDING = 'PENDING',

@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from 'src/users/users.entity';
-import { Match } from 'src/matches/matches.entity';
+import { User } from '../users/users.entity';
+import { Match } from '../matches/matches.entity';
 
 @Entity()
 export class Bet {

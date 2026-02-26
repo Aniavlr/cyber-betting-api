@@ -10,8 +10,8 @@ import { Bet } from './bets.entity';
 
 import { CreateBetDto } from './bet.dto';
 
-import { Match, MatchStatus } from 'src/matches/matches.entity';
-import { User } from 'src/users/users.entity';
+import { Match, MatchStatus } from '../matches/matches.entity';
+import { User } from '../users/users.entity';
 
 @Injectable()
 export class BetsService {
