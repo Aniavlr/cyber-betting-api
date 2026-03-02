@@ -1,4 +1,11 @@
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Body,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { BetsService } from './bets.service';
 import { CreateBetDto } from './bet.dto';
 
@@ -12,8 +19,8 @@ export class BetsController {
   }
 
   @Get('user/:userId')
-  getBetsByUserId(@Param('userId') id: string) {
-    return this.betsService.getBetsByUserId(Number(id));
+  getBetsByUserId(@Param('userId', ParseIntPipe) id: number) {
+    return this.betsService.getBetsByUserId(id);
   }
 
   @Post()

@@ -1,4 +1,12 @@
-import { Controller, Get, Param, Body, Post, Patch } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Body,
+  Post,
+  Patch,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { MatchesService } from './matches.service';
 import {
   CreateMatchDto,
@@ -16,8 +24,8 @@ export class MatchesController {
   }
 
   @Get(':id')
-  getMatchById(@Param('id') id: string) {
-    return this.matchesService.getMatchById(Number(id));
+  getMatchById(@Param('id', ParseIntPipe) id: number) {
+    return this.matchesService.getMatchById(id);
   }
 
   @Post()
